@@ -1,6 +1,6 @@
 {
   "name": "vue2-ios-pwa-prompt",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Port https://github.com/chrisdancee/react-ios-pwa-prompt.git for vue",
   "main": "./dist/vue2-ios-pwa-prompt.umd.js",
   "repository": {
