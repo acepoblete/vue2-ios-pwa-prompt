@@ -1,13 +1,28 @@
 {
   "name": "vue-ios-pwa-prompt",
   "version": "0.1.0",
-  "description": "A Vue component to prompt the user to add the app as a PWA to the home screen with native iOS styles.",
+  "description": "A Vue component to prompt the user to add the app as a PWA to the home screen with native iOS styles. Ported from https://github.com/chrisdancee/react-ios-pwa-prompt.git",
   "main": "./dist/vue-ios-pwa-prompt.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/acepoblete/vue-ios-pwa-prompt.git"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib ./src/index.js",
     "lint": "vue-cli-service lint"
   },
+  "keywords": [
+    "pwa",
+    "prompt",
+    "add to home screen",
+    "iOS",
+    "progressive web app",
+    "native"
+  ],
+  "license": "MIT",
+  "private": false,
+  "author": "Dan Poblete",
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^3.0.0"
