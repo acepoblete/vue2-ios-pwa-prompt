@@ -1,6 +1,6 @@
 # Vue-iOS-PWA-prompt
 
-[![npm version](http://img.shields.io/npm/v/react-ios-pwa-prompt.svg?style=flat)](https://npmjs.org/package/react-ios-pwa-prompt "View this project on npm") ![Gzip file size](https://img.badgesize.io/chrisdancee/react-ios-pwa-prompt/master/dist/react-ios-pwa-prompt.js?compression=gzip)
+[![npm version](http://img.shields.io/npm/v/vue-ios-pwa-prompt.svg?style=flat)](https://npmjs.org/package/react-ios-pwa-prompt "View this project on npm") ![Gzip file size](https://img.badgesize.io/acepoblete/vue-ios-pwa-prompt/master/dist/react-ios-pwa-prompt.js?compression=gzip)
 
 > Polyfilling PWAs for iOS
 
@@ -12,7 +12,7 @@ A Vue component that provides a customisable Progressive Web App (PWA) prompt te
 
 <hr>
 
-<img src="https://user-images.githubusercontent.com/11626619/65389000-18352d00-dd49-11e9-82c8-6fac25a494c8.gif" width="33%">
+<img src="https://user-images.githubusercontent.com/4582575/120235861-93d6c500-c220-11eb-8400-d3dc2a78c9f7.gif" width="33%">
 
 <hr>
 
