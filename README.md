@@ -1,6 +1,6 @@
 # Vue-iOS-PWA-prompt
 
-[![npm version](http://img.shields.io/npm/v/vue-ios-pwa-prompt.svg?style=flat)](https://npmjs.org/package/react-ios-pwa-prompt "View this project on npm") ![Gzip file size](https://img.badgesize.io/acepoblete/vue-ios-pwa-prompt/master/dist/react-ios-pwa-prompt.js?compression=gzip)
+[![npm version](http://img.shields.io/npm/v/vue2-ios-pwa-prompt.svg?style=flat)](https://npmjs.org/package/vue2-ios-pwa-prompt "View this project on npm")
 
 > Polyfilling PWAs for iOS
 

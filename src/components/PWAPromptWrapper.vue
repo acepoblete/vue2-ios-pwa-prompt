@@ -1,6 +1,4 @@
 <script>
-import { h } from "vue";
-
 import PWAPrompt from "./PWAPrompt";
 
 const deviceCheck = () => {
@@ -58,7 +56,7 @@ export default {
     onClose: { type: Function, default: () => {} },
   },
 
-  render: function () {
+  render: function (h) {
     let promptData = JSON.parse(localStorage.getItem("iosPwaPrompt"));
 
     if (promptData === null) {
@@ -82,16 +80,18 @@ export default {
 
         if (aboveMinVisits || this.debug) {
           return h(PWAPrompt, {
-            delay: this.delay,
-            copyTitle: this.copyTitle,
-            copyBody: this.copyBody,
-            copyAddHomeButtonLabel: this.copyAddHomeButtonLabel,
-            copyShareButtonLabel: this.copyShareButtonLabel,
-            copyClosePrompt: this.copyClosePrompt,
-            permanentlyHideOnDismiss: this.permanentlyHideOnDismiss,
-            promptData: promptData,
-            maxVisits: this.timesToShow + this.promptOnVisit,
-            onClose: this.onClose,
+            props: {
+              delay: this.delay,
+              copyTitle: this.copyTitle,
+              copyBody: this.copyBody,
+              copyAddHomeButtonLabel: this.copyAddHomeButtonLabel,
+              copyShareButtonLabel: this.copyShareButtonLabel,
+              copyClosePrompt: this.copyClosePrompt,
+              permanentlyHideOnDismiss: this.permanentlyHideOnDismiss,
+              promptData: promptData,
+              maxVisits: this.timesToShow + this.promptOnVisit,
+              onClose: this.onClose,
+            },
           });
         }
       }

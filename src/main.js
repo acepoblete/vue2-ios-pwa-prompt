@@ -1,4 +1,12 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import Vue from "vue";
 
-createApp(App).mount('#app')
+import Fragment from "vue-fragment";
+import App from "./App.vue";
+
+Vue.config.productionTip = false;
+
+Vue.use(Fragment.Plugin);
+
+new Vue({
+  render: (h) => h(App),
+}).$mount("#app");

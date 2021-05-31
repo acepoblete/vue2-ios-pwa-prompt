@@ -1,5 +1,4 @@
 <script>
-import { ref } from "vue";
 import HomeScreenIcon from "./HomeScreenIcon";
 import ShareIcon from "./ShareIcon";
 
@@ -22,23 +21,26 @@ export default {
     debug: { type: Boolean, default: false },
   },
 
-  setup(props) {
-    // eslint-disable-next-line no-extra-boolean-cast
-    const isVisible = ref(!Boolean(props.delay));
-    const setVisibility = (x) => (isVisible.value = x);
+  data() {
+    return {
+      isVisible: false,
+    };
+  },
 
-    if (props.delay) {
+  created() {
+    // eslint-disable-next-line no-extra-boolean-cast
+    this.isVisible = !Boolean(this.delay);
+
+    if (this.delay) {
       setTimeout(() => {
         // Prevent keyboard appearing over the prompt if a text input has autofocus set
         if (document.activeElement) {
           document.activeElement.blur();
         }
 
-        setVisibility(true);
-      }, props.delay);
+        this.isVisible = true;
+      }, this.delay);
     }
-
-    return { isVisible, setVisibility };
   },
 
   computed: {
@@ -56,7 +58,7 @@ export default {
   methods: {
     dismissPrompt(evt) {
       document.body.classList.remove("noScroll");
-      this.setVisibility(false);
+      this.isVisible = false;
 
       if (this.permanentlyHideOnDismiss) {
         localStorage.setItem(
@@ -83,62 +85,64 @@ export default {
 </script>
 
 <template>
-  <div
-    :class="['pwaPromptOverlay', visibilityClass, iOSClass, 'iOSPWA-overlay']"
-    aria-label="Close"
-    role="button"
-    @click="dismissPrompt"
-    @transitionEnd="onTransitionOut"
-  />
-  <div
-    :class="['pwaPrompt', visibilityClass, iOSClass, 'iOSPWA-container']"
-    aria-describedby="pwa-prompt-description"
-    aria-labelledby="pwa-prompt-title"
-    role="dialog"
-    @transitionEnd="onTransitionOut"
-  >
-    <div :class="['pwaPromptHeader', 'iOSPWA-header']">
-      <p id="pwa-prompt-title" :class="['pwaPromptTitle', 'iOSPWA-title']">
-        {{ copyTitle }}
-      </p>
-      <button
-        :class="['pwaPromptCancel', 'iOSPWA-cancel']"
-        @click="dismissPrompt"
-      >
-        {{ copyClosePrompt }}
-      </button>
-    </div>
-    <div :class="['pwaPromptBody', 'iOSPWA-body']">
-      <div :class="['pwaPromptDescription', 'iOSPWA-description']">
-        <p
-          id="pwa-prompt-description"
-          :class="['pwaPromptCopy', 'iOSPWA-description-copy']"
+  <fragment>
+    <div
+      :class="['pwaPromptOverlay', visibilityClass, iOSClass, 'iOSPWA-overlay']"
+      aria-label="Close"
+      role="button"
+      @click="dismissPrompt"
+      @transitionEnd="onTransitionOut"
+    />
+    <div
+      :class="['pwaPrompt', visibilityClass, iOSClass, 'iOSPWA-container']"
+      aria-describedby="pwa-prompt-description"
+      aria-labelledby="pwa-prompt-title"
+      role="dialog"
+      @transitionEnd="onTransitionOut"
+    >
+      <div :class="['pwaPromptHeader', 'iOSPWA-header']">
+        <p id="pwa-prompt-title" :class="['pwaPromptTitle', 'iOSPWA-title']">
+          {{ copyTitle }}
+        </p>
+        <button
+          :class="['pwaPromptCancel', 'iOSPWA-cancel']"
+          @click="dismissPrompt"
         >
-          {{ copyBody }}
-        </p>
+          {{ copyClosePrompt }}
+        </button>
+      </div>
+      <div :class="['pwaPromptBody', 'iOSPWA-body']">
+        <div :class="['pwaPromptDescription', 'iOSPWA-description']">
+          <p
+            id="pwa-prompt-description"
+            :class="['pwaPromptCopy', 'iOSPWA-description-copy']"
+          >
+            {{ copyBody }}
+          </p>
+        </div>
+      </div>
+      <div :class="['pwaPromptInstruction', 'iOSPWA-steps']">
+        <div :class="['pwaPromptInstructionStep', 'iOSPWA-step1']">
+          <ShareIcon
+            :class="['pwaPromptShareIcon', 'iOSPWA-step1-icon']"
+            :modern="isiOS13AndUp"
+          />
+          <p :class="['pwaPromptCopy', 'bold', 'iOSPWA-step1-copy']">
+            {{ copyShareButtonLabel }}
+          </p>
+        </div>
+        <div :class="['pwaPromptInstructionStep', 'iOSPWA-step2']">
+          <HomeScreenIcon
+            :class="['pwaPromptHomeIcon', 'iOSPWA-step2-icon']"
+            :modern="isiOS13AndUp"
+          />
+          <p :class="['pwaPromptCopy', 'bold', 'iOSPWA-step2-copy']">
+            {{ copyAddHomeButtonLabel }}
+          </p>
+        </div>
       </div>
     </div>
-    <div :class="['pwaPromptInstruction', 'iOSPWA-steps']">
-      <div :class="['pwaPromptInstructionStep', 'iOSPWA-step1']">
-        <ShareIcon
-          :class="['pwaPromptShareIcon', 'iOSPWA-step1-icon']"
-          :modern="isiOS13AndUp"
-        />
-        <p :class="['pwaPromptCopy', 'bold', 'iOSPWA-step1-copy']">
-          {{ copyShareButtonLabel }}
-        </p>
-      </div>
-      <div :class="['pwaPromptInstructionStep', 'iOSPWA-step2']">
-        <HomeScreenIcon
-          :class="['pwaPromptHomeIcon', 'iOSPWA-step2-icon']"
-          :modern="isiOS13AndUp"
-        />
-        <p :class="['pwaPromptCopy', 'bold', 'iOSPWA-step2-copy']">
-          {{ copyAddHomeButtonLabel }}
-        </p>
-      </div>
-    </div>
-  </div>
+  </fragment>
 </template>
 
 <style lang="scss" scoped>

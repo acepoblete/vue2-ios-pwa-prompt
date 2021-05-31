@@ -1,11 +1,11 @@
 {
-  "name": "vue-ios-pwa-prompt",
+  "name": "vue2-ios-pwa-prompt",
   "version": "0.1.0",
   "description": "Port https://github.com/chrisdancee/react-ios-pwa-prompt.git for vue",
-  "main": "./dist/vue-ios-pwa-prompt.js",
+  "main": "./dist/vue2-ios-pwa-prompt.umd.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/acepoblete/vue-ios-pwa-prompt.git"
+    "url": "https://github.com/acepoblete/vue2-ios-pwa-prompt.git"
   },
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -24,19 +24,22 @@
   "private": false,
   "author": "Dan Poblete",
   "dependencies": {
+    "@vue/composition-api": "^1.0.0-rc.10",
     "core-js": "^3.6.5",
-    "vue": "^3.0.0"
+    "vue": "^2.6.12",
+    "vue-fragment": "^1.5.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/compiler-sfc": "^3.0.11",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0",
     "sass": "^1.34.0",
-    "sass-loader": "^10.2.0"
+    "sass-loader": "^10.2.0",
+    "vue-template-compiler": "^2.6.12"
   },
   "eslintConfig": {
     "root": true,
