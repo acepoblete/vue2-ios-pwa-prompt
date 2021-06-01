@@ -1,6 +1,6 @@
 {
   "name": "vue2-ios-pwa-prompt",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Port https://github.com/chrisdancee/react-ios-pwa-prompt.git for vue",
   "main": "./dist/vue2-ios-pwa-prompt.umd.js",
   "repository": {
@@ -10,7 +10,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib ./src/index.js",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "prepublish": "yarn build"
   },
   "keywords": [
     "pwa",
@@ -24,7 +25,6 @@
   "private": false,
   "author": "Dan Poblete",
   "dependencies": {
-    "@vue/composition-api": "^1.0.0-rc.10",
     "core-js": "^3.6.5",
     "vue": "^2.6.12",
     "vue-fragment": "^1.5.2"
