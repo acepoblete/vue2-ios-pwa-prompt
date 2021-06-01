@@ -4,7 +4,7 @@
 
 > Polyfilling PWAs for iOS
 
-[Check out the demo!](https://react-ios-pwa-prompt.vercel.app//)
+[Check out the demo!](https://codesandbox.io/s/vue2-ios-pwa-prompt-jpqsx)
 
 Port of [React-iOS-PWA-prompt](https://github.com/chrisdancee/react-ios-pwa-prompt.git) for vue
 
@@ -26,12 +26,12 @@ A Vue component that provides a customisable Progressive Web App (PWA) prompt te
 
 ## Usage
 
-1. Add `vue-ios-pwa-prompt` as a dependency using `yarn add vue-ios-pwa-prompt`.
+1. Add `vue2-ios-pwa-prompt` as a dependency using `yarn add vue2-ios-pwa-prompt`.
 
 2. Import into your project:
 
 ```
-import PWAPrompt from 'vue-ios-pwa-prompt'
+import PWAPrompt from 'vue2-ios-pwa-prompt'
 ```
 
 3. Render the component:
